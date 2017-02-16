@@ -1,7 +1,7 @@
 {
   "name": "react-native-google-maps-directions",
   "version": "1.0.0",
-  "description": "Get direction using Google Maps from React Native 🚗",
+  "description": "Get direction using Google Maps in React Native",
   "license": "MIT",
   "main": "index.js",
   "repository": {

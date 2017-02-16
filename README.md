@@ -1,6 +1,6 @@
 <h1 align="center">🚚 react-native-google-maps-directions 🚲</h1>
 <div align="center">
-  <strong>🚕 Get direction using Google Maps from React Native 🚗</strong>
+  <strong>🚕 Get direction using Google Maps in React Native 🚗</strong>
 </div>
 <br>
 <div align="center">
