@@ -12,13 +12,13 @@ const isValidSourceDest = (args) => {
 }
 
 const getParameterString = (params) => {
-  let paramsStr = ""
+  let paramsStr = ''
 
-  if (!params || !params.map) return paramsStr;
+  if (!params || !params.map) return paramsStr
 
-  params.map(({ key, value}) => {
+  params.map(({key, value}) => {
     paramsStr += `&${key}=${value}`
-  });
+  })
 
   return paramsStr
 }
@@ -29,7 +29,7 @@ function getDirections (args) {
   }
 
   const {destination, source, params} = args
-  const paramsStr = getParameterString(params);
+  const paramsStr = getParameterString(params)
 
   const url = `http://maps.google.com/maps?saddr=${source.latitude},${source.longitude}&daddr=${destination.latitude},${destination.longitude}${paramsStr}`
 
