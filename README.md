@@ -74,7 +74,13 @@ export default class gmapsDirections extends Component {
       destination: {
         latitude: -33.8600024,
         longitude: 18.697459
-      }
+      },
+      params: [
+        {
+          key: "dirflg",
+          value: "w"
+        }
+      ]
     }
 
     getDirections(data)
@@ -97,6 +103,8 @@ export default class gmapsDirections extends Component {
 ## API
 
 The module exports a single `getDirections` function that takes a object as its argument. The object should have `destination` (Where your coming from) and `source` (Where you going to) both of which have `latitude` and `longitude` number properties.
+
+Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](http://alvarestech.com/temp/routeconverter/RouteConverter/navigation-formats/src/main/doc/googlemaps/Google_Map_Parameters.htm). For example, in the code above, the key-value pair `dirflg` and `w` tells google maps to provide the directions with travel mode set to walking.
 
 ## Contribute
 

@@ -11,17 +11,31 @@ const isValidSourceDest = (args) => {
   return vaidDestination && validSource
 }
 
+const getParameterString = (params) => {
+  let paramsStr = ''
+
+  if (!params || !params.map) return paramsStr
+
+  params.map(({key, value}) => {
+    paramsStr += `&${key}=${value}`
+  })
+
+  return paramsStr
+}
+
 function getDirections (args) {
   if (!isValidSourceDest(args)) {
     return Promise.reject(new Error('Invalid arguments provided'))
   }
 
-  const {destination, source} = args
-  const url = `http://maps.google.com/maps?saddr=${source.latitude},${source.longitude}&daddr=${destination.latitude},${destination.longitude}`
+  const {destination, source, params} = args
+  const paramsStr = getParameterString(params)
+
+  const url = `http://maps.google.com/maps?saddr=${source.latitude},${source.longitude}&daddr=${destination.latitude},${destination.longitude}${paramsStr}`
 
   return Linking.canOpenURL(url).then((supported) => {
     if (!supported) {
-      return Promise.reject(new Error('Could not open the url'))
+      return Promise.reject(new Error(`Could not open the url: ${url}`))
     } else {
       return Linking.openURL(url)
     }
