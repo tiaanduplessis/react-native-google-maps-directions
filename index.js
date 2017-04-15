@@ -33,8 +33,6 @@ function getDirections (args) {
 
   const url = `http://maps.google.com/maps?saddr=${source.latitude},${source.longitude}&daddr=${destination.latitude},${destination.longitude}${paramsStr}`
 
-  console.log(url);
-
   return Linking.canOpenURL(url).then((supported) => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
