@@ -3,11 +3,12 @@
 import { Linking } from 'react-native'
 
 const isValidLatLong = (num, range) => typeof num === 'number' && num <= range && num >= (-1 * range)
-const isValidCoordinates = (coords) => isValidLatLong(coords.latitude, 90) && isValidLatLong(coords.longitude, 180)
+const isValidCoordinates = (coords) => coords === undefined || (isValidLatLong(coords.latitude, 90) && isValidLatLong(coords.longitude, 180))
 
+// If source and destination are present, they must be valid coordinates
 const isValidSourceDest = (args) => {
-  const validSource = args.source && isValidCoordinates(args.source)
-  const vaidDestination = args.destination && isValidCoordinates(args.destination)
+  const validSource = isValidCoordinates(args.source)
+  const vaidDestination = isValidCoordinates(args.destination)
   return vaidDestination && validSource
 }
 
@@ -28,11 +29,31 @@ function getDirections (args) {
     return Promise.reject(new Error('Invalid arguments provided'))
   }
 
-  const {destination, source, params} = args
-  const paramsStr = getParameterString(params)
+  let {destination, source, params} = args
 
-  const url = `http://maps.google.com/maps?saddr=${source.latitude},${source.longitude}&daddr=${destination.latitude},${destination.longitude}${paramsStr}`
+  // default to the empty array for consistency
+  params = params || [];
 
+  // Only send source and destination parameters if they exist
+  if (destination) {
+    console.log('setting destination')
+    params.push({
+      key: 'daddr',
+      value: `${destination.latitude},${destination.longitude}`
+    });
+  }
+  if (source) {
+    console.log('setting source')
+    params.push({
+      key: 'saddr',
+      value: `${source.latitude},${source.longitude}`
+    });
+  }
+
+  // Remove the leading &
+  const paramsStr = getParameterString(params).slice(1)
+  const url = `http://maps.google.com/maps?${paramsStr}`
+  console.log('getting', url);
   return Linking.canOpenURL(url).then((supported) => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
