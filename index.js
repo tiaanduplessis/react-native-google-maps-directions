@@ -53,7 +53,6 @@ function getDirections (args) {
   // Remove the leading &
   const paramsStr = getParameterString(params).slice(1)
   const url = `http://maps.google.com/maps?${paramsStr}`
-  console.log('getting', url);
   return Linking.canOpenURL(url).then((supported) => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
