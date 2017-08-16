@@ -16,8 +16,7 @@ const getParameterString = (params = []) => {
     .join('&')
 }
 
-function getDirections({ destination, source, params = [] } = {}) {
-
+function getDirections ({ destination, source, params = [] } = {}) {
   if (destination && isValidCoordinates(destination)) {
     params.push({
       key: 'daddr',
