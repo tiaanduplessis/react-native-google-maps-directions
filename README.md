@@ -1,54 +1,25 @@
-<h1 align="center">🚚 react-native-google-maps-directions 🚲</h1>
-<div align="center">
-  <strong>🚕 Get direction using Google Maps in React Native 🚗</strong>
-</div>
-<br>
-<div align="center">
-    <a href="https://npmjs.org/package/react-native-google-maps-directions">
-      <img src="https://img.shields.io/npm/v/react-native-google-maps-directions.svg?style=flat-square" alt="NPM version" />
-    </a>
-    <a href="https://npmjs.org/package/react-native-google-maps-directions">
-    <img src="https://img.shields.io/npm/dm/react-native-google-maps-directions.svg?style=flat-square" alt="Downloads" />
-    </a>
-    <a href="https://github.com/feross/standard">
-      <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square" alt="Standard" />
-    </a>
-    <a href="https://travis-ci.org/tiaanduplessis/react-native-google-maps-directions">
-      <img src="https://img.shields.io/travis/tiaanduplessis/react-native-google-maps-directions/master.svg?style=flat-square" alt="Travis Build" />
-    </a>
-    <a href="https://github.com/RichardLitt/standard-readme)">
-      <img src="https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square" alt="Standard Readme" />
-    </a>
-    <a href="https://badge.fury.io/gh/tiaanduplessis%2Freact-native-google-maps-directions">
-      <img src="https://badge.fury.io/gh/tiaanduplessis%2Freact-native-google-maps-directions.svg?style=flat-square" alt="GitHub version" />
-   </a>
-</div>
-<br>
-<div align="center">
-  Built with ❤︎ by <a href="tiaanduplessis.co.za">Tiaan</a> and <a href="https://github.com/tiaanduplessis/react-native-google-maps-directions/graphs/contributors">contributors</a>
-</div>
+# 🚚 react-native-google-maps-directions 🚲
 
-<h2>Table of Contents</h2>
-<details>
-  <summary>Table of Contents</summary>
-  <li><a href="#about">About</a></li>
-  <li><a href="#install">Install</a></li>
-  <li><a href="#usage">Usage</a></li>
-  <li><a href="#api">API</a></li>
-  <li><a href="#contribute">Contribute</a></li>
-  <li><a href="#license">License</a></li>
-</details>
+> 🚕 Get direction using Google Maps in React Native 🚗<
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-google-maps-directions.svg)](https://greenkeeper.io/)
+[![npm version](https://img.shields.io/npm/v/react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
+[![Downloads](https://img.shields.io/npm/dm/react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
+[![Standard](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
+[![Travis Build](https://img.shields.io/travis/tiaanduplessis/react-native-google-maps-directions/master.svg?style=flat-square)](https://travis-ci.org/tiaanduplessis/react-native-google-maps-directions)
+
+## Table of Contents
+
+- [About](#about)
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+- [Contribute](#Contribute)
+- [License](#license)
 
 ## About
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-google-maps-directions.svg)](https://greenkeeper.io/)
-
 A tiny module that uses the [React Native Linking API](https://facebook.github.io/react-native/docs/linking.html) to get directions using [Google Maps](https://www.google.com/maps) by opening it in the default browser or app if installed.
-
-<div align="center">
-  <img src="./media/maps.jpg" alt="Maps for the win" />
-</div>
 
 ## Install
 
