@@ -1,6 +1,6 @@
 # 🚚 react-native-google-maps-directions 🚲
 
-> 🚕 Get direction using Google Maps in React Native 🚗<
+> 🚕 Get direction using Google Maps in React Native 🚗
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-google-maps-directions.svg)](https://greenkeeper.io/)
 [![npm version](https://img.shields.io/npm/v/react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
