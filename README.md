@@ -79,8 +79,12 @@ export default class gmapsDirections extends Component {
       },
       params: [
         {
-          key: "dirflg",
-          value: "w"
+          key: "travelmode",
+          value: "driving"        // may be "walking", "bicycling" or "transit" as well
+        },
+        {
+          key: "dir_action",
+          value: "navigate"       // this initialize navigation using the given travel mode 
         }
       ]
     }
@@ -104,9 +108,9 @@ export default class gmapsDirections extends Component {
 
 ## API
 
-The module exports a single `getDirections` function that takes a object as its argument. The object may have `destination` (Where your coming from) and `source` (Where you going to) both of which have `latitude` and `longitude` number properties. If `source` is undefined, it defaults to the user's current location. If `destination` is undefined, it leaves it blank in Google Maps and the user will be able to enter a destination.
+The module exports a single `getDirections` function that takes a object as its argument. The object may have `destination` (Where you're going to) and `source` (Where you're coming from) both of which have `latitude` and `longitude` number properties. If `source` is undefined, it defaults to the user's current location. If `destination` is undefined, it leaves it blank in Google Maps and the user will be able to enter a destination.
 
-Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](http://alvarestech.com/temp/routeconverter/RouteConverter/navigation-formats/src/main/doc/googlemaps/Google_Map_Parameters.htm). For example, in the code above, the key-value pair `dirflg` and `w` tells google maps to provide the directions with travel mode set to walking.
+Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](https://developers.google.com/maps/documentation/urls/guide). 
 
 ## Contribute
 

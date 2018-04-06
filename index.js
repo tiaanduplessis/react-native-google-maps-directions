@@ -19,18 +19,18 @@ const getParameterString = (params = []) => {
 function getDirections ({ destination, source, params = [] } = {}) {
   if (destination && isValidCoordinates(destination)) {
     params.push({
-      key: 'daddr',
+      key: 'destination',
       value: `${destination.latitude},${destination.longitude}`
     })
   }
   if (source && isValidCoordinates(source)) {
     params.push({
-      key: 'saddr',
+      key: 'origin',
       value: `${source.latitude},${source.longitude}`
     })
   }
-
-  const url = `http://maps.google.com/maps?${getParameterString(params)}`
+  
+  const url = `https://www.google.com/maps/dir/?api=1&${getParameterString(params)}`;
   return Linking.canOpenURL(url).then(supported => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
