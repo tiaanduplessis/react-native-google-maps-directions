@@ -29,8 +29,8 @@ function getDirections ({ destination, source, params = [] } = {}) {
       value: `${source.latitude},${source.longitude}`
     })
   }
-  
-  const url = `https://www.google.com/maps/dir/?api=1&${getParameterString(params)}`;
+
+  const url = `https://www.google.com/maps/dir/?api=1&${getParameterString(params)}`
   return Linking.canOpenURL(url).then(supported => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
