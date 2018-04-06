@@ -84,7 +84,7 @@ export default class gmapsDirections extends Component {
         },
         {
           key: "dir_action",
-          value: "navigate"       // this initialize navigation using the given travel mode 
+          value: "navigate"       // this instantly initializes navigation using the given travel mode 
         }
       ]
     }
@@ -110,7 +110,7 @@ export default class gmapsDirections extends Component {
 
 The module exports a single `getDirections` function that takes a object as its argument. The object may have `destination` (Where you're going to) and `source` (Where you're coming from) both of which have `latitude` and `longitude` number properties. If `source` is undefined, it defaults to the user's current location. If `destination` is undefined, it leaves it blank in Google Maps and the user will be able to enter a destination.
 
-Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](https://developers.google.com/maps/documentation/urls/guide). 
+Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](https://developers.google.com/maps/documentation/urls/guide#directions-action). 
 
 ## Contribute
 
