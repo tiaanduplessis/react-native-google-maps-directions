@@ -10,18 +10,12 @@
   },
   "homepage": "https://github.com/tiaanduplessis/react-native-google-maps-directions",
   "bugs": "https://github.com/tiaanduplessis/react-native-google-maps-directions/issues",
-  "author": {
-    "name": "Tiaan",
-    "email": "tiaanduplessis@hotmail.com",
-    "url": "tiaanduplessis.co.za"
-  },
+  "author": "Tiaan du Plessis",
   "files": [
     "index.js"
   ],
   "scripts": {
-    "start": "npm run dev",
-    "lint": "standard --verbose",
-    "lint:fix": "standard --fix --verbose",
+    "lint": "standard --fix --verbose",
     "test": "standard"
   },
   "keywords": [
@@ -33,6 +27,6 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "standard": "^11.0.0"
+    "standard": "^11.0.1"
   }
 }
