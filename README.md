@@ -104,7 +104,9 @@ Additionaly parameters can be added as key-value pairs to the params array (opti
 
 Now supports waypoints :
 Waypoints should be passed as an array of objects 
-Ex : [
+Ex : 
+```js
+[
         {
           latitude: -33.8600025,
           longitude: 18.697452,
@@ -114,6 +116,7 @@ Ex : [
           longitude: 18.697453,
         },
 ]
+```
 
 ## Contribute
 
