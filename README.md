@@ -58,6 +58,25 @@ export default class gmapsDirections extends Component {
           value: "navigate"       // this instantly initializes navigation using the given travel mode 
         }
       ]
+      waypoints: [
+        {
+          latitude: -33.8600025,
+          longitude: 18.697452,
+        },
+        {
+          latitude: -33.8600026,
+          longitude: 18.697453,
+        },
+           {
+          latitude: -33.8600036,
+          longitude: 18.697493,
+        },
+           {
+          latitude: -33.8600046,
+          longitude: 18.69743,
+        },
+       
+      ]
     }
 
     getDirections(data)
@@ -82,6 +101,19 @@ export default class gmapsDirections extends Component {
 The module exports a single `getDirections` function that takes a object as its argument. The object may have `destination` (Where you're going to) and `source` (Where you're coming from) both of which have `latitude` and `longitude` number properties. If `source` is undefined, it defaults to the user's current location. If `destination` is undefined, it leaves it blank in Google Maps and the user will be able to enter a destination.
 
 Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](https://developers.google.com/maps/documentation/urls/guide#directions-action). 
+
+Now supports waypoints :
+Waypoints should be passed as an array of objects 
+Ex : [
+        {
+          latitude: -33.8600025,
+          longitude: 18.697452,
+        },
+        {
+          latitude: -33.8600026,
+          longitude: 18.697453,
+        },
+]
 
 ## Contribute
 
