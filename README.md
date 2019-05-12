@@ -40,7 +40,7 @@ export default class gmapsDirections extends Component {
 
   handleGetDirections = () => {
     const data = {
-       source: {
+       origin: {
         latitude: -33.8356372,
         longitude: 18.6947617
       },
