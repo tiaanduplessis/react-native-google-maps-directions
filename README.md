@@ -57,7 +57,7 @@ export default class gmapsDirections extends Component {
           key: "dir_action",
           value: "navigate"       // this instantly initializes navigation using the given travel mode 
         }
-      ]
+      ],
       waypoints: [
         {
           latitude: -33.8600025,
