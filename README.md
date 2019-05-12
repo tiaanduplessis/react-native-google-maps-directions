@@ -70,12 +70,7 @@ export default class gmapsDirections extends Component {
            {
           latitude: -33.8600036,
           longitude: 18.697493,
-        },
-           {
-          latitude: -33.8600046,
-          longitude: 18.69743,
-        },
-
+        }
       ]
     }
 
@@ -115,7 +110,7 @@ Waypoints should be passed as an array of objects:
         {
           latitude: -33.8600026,
           longitude: 18.697453,
-        },
+        }
 ]
 ```
 
