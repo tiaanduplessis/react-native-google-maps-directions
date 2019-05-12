@@ -1,12 +1,11 @@
 import { Linking } from 'react-native'
 
-const isValidLatLong = (num, range) =>
-  typeof num === 'number' && num <= range && num >= -1 * range
+const isValidLatLng = (num, range) => typeof num === 'number' && num <= range && num >= -1 * range
 
 const isValidCoordinates = coords =>
-  isValidLatLong(coords.latitude, 90) && isValidLatLong(coords.longitude, 180)
+  isValidLatLng(coords.latitude, 90) && isValidLatLng(coords.longitude, 180)
 
-const getParameterString = (params = []) => {
+const getParams = (params = []) => {
   return params
     .map(({ key, value }) => {
       const encodedKey = encodeURIComponent(key)
@@ -16,10 +15,16 @@ const getParameterString = (params = []) => {
     .join('&')
 }
 
-const getWaypointsString = (waypoints = []) => {
-  return waypoints.map(value => {
-    return `${value.latitude},${value.longitude}`
-  }).join('|')
+const getWaypoints = (waypoints = []) => {
+  if (waypoints.length === 0) {
+    return ''
+  }
+
+  const params = waypoints
+    .map(value => `${value.latitude},${value.longitude}`)
+    .join('|')
+
+  return `&waypoints=${params}`
 }
 
 function getDirections ({ destination, source, params = [], waypoints = [] } = {}) {
@@ -42,9 +47,9 @@ function getDirections ({ destination, source, params = [], waypoints = [] } = {
     })
   }
 
-  const url = `https://www.google.com/maps/dir/?api=1&${getParameterString(
+  const url = `https://www.google.com/maps/dir/?api=1&${getParams(
     params
-  )}&waypoints=${getWaypointsString(waypoints)}`
+  )}${getWaypoints(waypoints)}`
   return Linking.canOpenURL(url).then(supported => {
     if (!supported) {
       return Promise.reject(new Error(`Could not open the url: ${url}`))
