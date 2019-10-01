@@ -27,6 +27,6 @@
     "react-native-google-maps-directions"
   ],
   "devDependencies": {
-    "standard": "13.1.0"
+    "standard": "14.3.1"
   }
 }
