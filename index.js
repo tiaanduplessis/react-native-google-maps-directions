@@ -34,12 +34,7 @@ function getDirections ({ destination, source, params = [], waypoints = [] } = {
       value: `${destination.latitude},${destination.longitude}`
     })
   }
-  if (source && isValidCoordinates(source)) {
-    params.push({
-      key: 'origin',
-      value: `${source.latitude},${source.longitude}`
-    })
-  }
+
   if (source && isValidCoordinates(source)) {
     params.push({
       key: 'origin',
