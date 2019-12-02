@@ -8,9 +8,7 @@ const isValidCoordinates = coords =>
 const getParams = (params = []) => {
   return params
     .map(({ key, value }) => {
-      const encodedKey = encodeURIComponent(key)
-      const encodedValue = encodeURIComponent(value)
-      return `${encodedKey}=${encodedValue}`
+      return `${key}=${value}`
     })
     .join('&')
 }
