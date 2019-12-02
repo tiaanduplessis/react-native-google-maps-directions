@@ -1,10 +1,10 @@
-# 🚚 react-native-google-maps-directions 🚲
+# 🚚 expando-react-native-google-maps-directions 🚲
 
 > 🚕 Get direction using Google Maps in React Native 🚗
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/react-native-google-maps-directions.svg)](https://greenkeeper.io/)
 [![npm version](https://img.shields.io/npm/v/react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
-[![Downloads](https://img.shields.io/npm/dm/react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
+[![Downloads](https://img.shields.io/npm/dm/expando-react-native-google-maps-directions.svg?style=flat-square)](https://npmjs.org/package/react-native-google-maps-directions)
 [![Standard](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 [![Travis Build](https://img.shields.io/travis/tiaanduplessis/react-native-google-maps-directions/master.svg?style=flat-square)](https://travis-ci.org/tiaanduplessis/react-native-google-maps-directions)
 
@@ -24,17 +24,17 @@ A tiny module that uses the [React Native Linking API](https://facebook.github.i
 ## Install
 
 ```sh
-$ npm install --save react-native-google-maps-directions
+$ npm install --save expando-react-native-google-maps-directions
 ```
 
 ```sh
-$ yarn add react-native-google-maps-directions
+$ yarn add expando-react-native-google-maps-directions
 ```
 
 ## Usage
 
 ```js
-import getDirections from 'react-native-google-maps-directions'
+import getDirections from 'expando-react-native-google-maps-directions'
 
 export default class gmapsDirections extends Component {
 
