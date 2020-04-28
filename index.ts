@@ -1,37 +1,39 @@
 import { Linking } from 'react-native'
 
-type LatLng = {
+export namespace directions{ export type LatLng= {
   latitude: number;
   longitude: number;
 };
-type travelMode = "DRIVING" | "BICYCLING" | "TRANSIT" | "WALKING";
-type paramsKeys =
-  | "travelmode"
-  | "dir_action"
-  | "origin"
-  | "destination"
-  | "waypoints";
+export enum travelMode {
+  DRIVING = "DRIVING",
+  BICYCLING = "BICYCLING",
+  TRANSIT = "TRANSIT",
+  WALKING = "WALKING"
+}
+export enum paramsKeys {
+  TRAVELMODE = "travelmode",
+}
 
-interface paramsProps {
+export interface paramsProps {
   key: string | paramsKeys;
   value: string | travelMode;
 }
 
-interface getDirectionsProps {
+export interface getDirectionsProps {
   destination: LatLng;
   source: LatLng;
   params: Array<paramsProps>;
-  waypoints: LatLng[]| [];
-}
+  waypoints: LatLng[] | [];
+}}
 
-const isValidLatLng = (num:number, range:number) => typeof num === 'number' && num <= range && num >= -1 * range
+const isValidLatLng = (num: number, range: number) => typeof num === 'number' && num <= range && num >= -1 * range
 
-const isValidCoordinates = (coords:LatLng) =>
-  isValidLatLng(coords.latitude, 90) && isValidLatLng(coords.longitude, 180)
+const isValidCoordinates = (coords: directions.LatLng) =>
+isValidLatLng(coords.latitude, 90) && isValidLatLng(coords.longitude, 180)
 
-const getParams = (params:paramsProps[]) => {
+const getParams = (params: directions.paramsProps[]) => {
   return params
-    .map(({ key, value }) => {
+  .map(({ key, value }) => {
       const encodedKey = encodeURIComponent(key)
       const encodedValue = encodeURIComponent(value)
       return `${encodedKey}=${encodedValue}`
@@ -39,21 +41,21 @@ const getParams = (params:paramsProps[]) => {
     .join('&')
 }
 
-const getWaypoints = (waypoints:LatLng[]) => {
+const getWaypoints = (waypoints: directions.LatLng[]) => {
   if (waypoints.length === 0) {
     return ''
   }
-
+  
   const params = waypoints
-    .map(value => `${value.latitude},${value.longitude}`)
-    .join('|')
-
+  .map(value => `${value.latitude},${value.longitude}`)
+  .join('|')
+  
   return `&waypoints=${params}`
 }
 
-function getDirections (props:getDirectionsProps) {
-  if(!props.params){
-    props.params=new Array<paramsProps>()
+function getDirections(props: directions.getDirectionsProps) {
+  if (!props.params) {
+    props.params = new Array<directions.paramsProps>()
   }
   if (props.destination && isValidCoordinates(props.destination)) {
     props.params.push({
@@ -81,4 +83,4 @@ function getDirections (props:getDirectionsProps) {
   })
 }
 
-export default getDirections
+export {getDirections}
