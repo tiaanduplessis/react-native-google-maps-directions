@@ -1,5 +1,5 @@
 declare module "react-native-google-maps-directions" {
-  type LatLng = {
+  export namespace directions {type LatLng = {
     latitude: number;
     longitude: number;
   };
@@ -21,7 +21,7 @@ declare module "react-native-google-maps-directions" {
     source: LatLng;
     params: Array<paramsProps>|[];
     waypoints: LatLng[]| [];
-  }
+  }}
 
-  export function getDirections(props:getDirectionsProps):Promise<any>;
+  export function getDirections(props:directions.getDirectionsProps):Promise<any>;
 }
