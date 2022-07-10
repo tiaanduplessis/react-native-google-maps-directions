@@ -9,7 +9,7 @@ const getParams = (params = []) => {
   return params
     .map(({ key, value }) => {
       const encodedKey = encodeURIComponent(key)
-      const encodedValue = encodeURIComponent(value)
+      const encodedValue = value  // comma fix , coma changed to %2C previosly
       return `${encodedKey}=${encodedValue}`
     })
     .join('&')
