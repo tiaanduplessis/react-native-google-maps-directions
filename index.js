@@ -8,10 +8,10 @@ const isValidCoordinates = coords =>
 const getParams = (params = []) => {
   return params
     .map(({ key, value }) => {
-      return `${key}=${value}`;
+      return `${key}=${value}`
     })
-    .join('&');
-};
+    .join('&')
+}
 
 const getWaypoints = (waypoints = []) => {
   if (waypoints.length === 0) {
