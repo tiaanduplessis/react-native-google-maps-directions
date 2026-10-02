@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, View, StyleSheet, Dimensions } from "react-native";
-import {getDirections} from "react-native-google-maps-directions";
+import getDirections from "react-native-google-maps-directions";
 
 export default function Deliver() {
   const address= [

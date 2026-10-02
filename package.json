@@ -12,12 +12,13 @@
   "bugs": "https://github.com/tiaanduplessis/react-native-google-maps-directions/issues",
   "author": "Tiaan du Plessis",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
-    "lint": "standard --fix",
+    "lint": "standard",
     "pretest": "npm run lint",
-    "test": "echo 'No tests!'"
+    "test": "node test/index.js"
   },
   "keywords": [
     "react-native,",
@@ -27,6 +28,8 @@
     "react-native-google-maps-directions"
   ],
   "devDependencies": {
-    "standard": "14.3.1"
-  }
+    "standard": "14.3.1",
+    "typescript": "5.9.3"
+  },
+  "types": "index.d.ts"
 }
