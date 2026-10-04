@@ -15,6 +15,7 @@
 - [Usage](#usage)
 - [TypeScript](#typescript)
 - [API](#api)
+- [Troubleshooting](#troubleshooting)
 - [Contribute](#Contribute)
 - [License](#license)
 
@@ -134,6 +135,49 @@ Waypoints should be passed as an array of objects:
         }
 ]
 ```
+
+## Troubleshooting
+
+### Android: Could not open the url
+
+In the published `2.1.1` package, `getDirections` checks the generated HTTPS Google
+Maps URL with `Linking.canOpenURL` before calling `Linking.openURL`. The error
+`Could not open the url: ...` means that check returned `false`; it does not prove
+that Google Maps is missing.
+
+On Android 11 or later, apps targeting API level 30 or higher are subject to
+package visibility filtering. A missing manifest query is one possible reason the
+check cannot find a URL handler. See the [React Native Linking guidance](https://reactnative.dev/docs/linking#canopenurl)
+and [Android package visibility documentation](https://developer.android.com/training/package-visibility/declaring).
+
+For this package's HTTPS URLs, the query recommended by React Native is:
+
+```xml
+<queries>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="https" />
+  </intent>
+</queries>
+```
+
+Place this in your app's `android/app/src/main/AndroidManifest.xml`, directly inside
+`<manifest>` and outside `<application>`. If `<queries>` already exists, add only
+the `<intent>` to it. Rebuild and reinstall the Android app after changing its
+manifest; reloading JavaScript does not apply native manifest changes.
+
+This query is limited to HTTPS URL handlers. Do not add `QUERY_ALL_PACKAGES` just
+for this package; queries for `geo` or `google.navigation` are not needed for the
+HTTPS URLs it generates. A Gradle downgrade is not part of this guidance.
+
+The query does not install a URL handler or guarantee that the URL will open. If
+the problem persists, compare `Linking.canOpenURL(url)` and a separate
+`Linking.openURL(url)` call using the exact same URL on the same device, and record
+each result or error. Direct opening may launch a browser or Maps;
+[Android distinguishes querying for an app from starting its activity](https://developer.android.com/training/package-visibility/use-cases#open-urls).
+When reporting the issue, include the Android version, React Native and package
+versions, `targetSdkVersion`, and those results. This is troubleshooting for the
+released `2.1.1` behavior, not a confirmed fix for every launch failure.
 
 ## Contribute
 
