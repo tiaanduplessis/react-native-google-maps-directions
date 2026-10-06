@@ -119,6 +119,19 @@ The module exports a single `getDirections` function that takes a object as its 
 
 Additionaly parameters can be added as key-value pairs to the params array (optional). The supported parameters are listed [here](https://developers.google.com/maps/documentation/urls/guide#directions-action).
 
+### Launch result and arrival callbacks
+
+`getDirections` opens a [Google Maps directions URL](https://developers.google.com/maps/documentation/urls/get-started#directions).
+After checking whether the URL can be handled, its returned promise follows
+[React Native's `Linking.openURL`](https://reactnative.dev/docs/linking#openurl).
+Resolution indicates that the URL was opened or the user accepted the open dialog.
+It does not confirm arrival, navigation completion, or a completed delivery.
+
+This package does not track location or expose a callback for reaching the
+destination or pressing "Finished" in Google Maps. Awaiting `getDirections(...)`
+cannot be used as an arrival signal. This limitation also applies to the published
+`2.1.1` package.
+
 ### Waypoints
 
 Waypoints should be passed as an array of objects:
