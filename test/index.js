@@ -5,6 +5,7 @@ const os = require('os')
 const path = require('path')
 const vm = require('vm')
 const ts = require('typescript')
+const paramsTests = require('./params')
 
 const root = path.resolve(__dirname, '..')
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'maps-directions-test-'))
@@ -134,6 +135,10 @@ async function main () {
     canOpenURL: async () => true,
     openURL: async () => { throw openError }
   })(), error => error === openError)
+  for (const [name, test] of paramsTests) {
+    await test(loadRuntime)
+    console.log(`Passed: packed runtime ${name}`)
+  }
   console.log('Passed: packed declarations, 4 strict consumer configurations, and mocked Linking behavior')
 }
 

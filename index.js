@@ -26,22 +26,24 @@ const getWaypoints = (waypoints = []) => {
 }
 
 function getDirections ({ destination, source, params = [], waypoints = [] } = {}) {
+  const queryParams = params.slice()
+
   if (destination && isValidCoordinates(destination)) {
-    params.push({
+    queryParams.push({
       key: 'destination',
       value: `${destination.latitude},${destination.longitude}`
     })
   }
 
   if (source && isValidCoordinates(source)) {
-    params.push({
+    queryParams.push({
       key: 'origin',
       value: `${source.latitude},${source.longitude}`
     })
   }
 
   const url = `https://www.google.com/maps/dir/?api=1&${getParams(
-    params
+    queryParams
   )}${getWaypoints(waypoints)}`
   return Linking.canOpenURL(url).then(supported => {
     if (!supported) {
